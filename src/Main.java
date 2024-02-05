@@ -15,7 +15,5 @@ public class Main {
         System.out.println("Test");
 
         //testing commit
-
-        //test test test
     }
 }

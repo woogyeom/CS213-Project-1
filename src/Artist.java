@@ -1,4 +1,4 @@
-public class Artist {
+public class Artist implements Comparable<Artist> {
     private String name;
     private Date born;
 
@@ -10,6 +10,24 @@ public class Artist {
 
         return 0;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getBorn() {
+        return born;
+    }
+
+    public void setBorn(Date born) {
+        this.born = born;
+    }
+
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

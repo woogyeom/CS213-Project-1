@@ -5,6 +5,46 @@ public class Album {
     private Date released;
     private Rating ratings; //a linked list of ratings
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public Date getReleased() {
+        return released;
+    }
+
+    public void setReleased(Date released) {
+        this.released = released;
+    }
+
+    public Rating getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Rating ratings) {
+        this.ratings = ratings;
+    }
+
     public void rate(int star) {
         Rating newRating = new Rating(star);
 
@@ -23,7 +63,7 @@ public class Album {
         int count = 0;
 
         Rating curRating = ratings;
-        while (curRating.getNext() != null) {
+        while (curRating != null) {
             total += curRating.getStar();
             count++;
             curRating = curRating.getNext();
@@ -34,4 +74,35 @@ public class Album {
         }
         return (double) total /count;
     } //compute the average ratings
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Album album = (Album) obj;
+        return title.equals(album.title) && artist.equals(album.artist);
+    }
+
+    @Override
+    public String toString() {
+        String returnString = "";
+        returnString = returnString + "[" + title + "] Released " + released + "[" + artist.getName() + ":" + artist.getBorn() + "][" + genre + "] Rating: ";
+
+        int[] ratingCounts = new int[5];
+        Rating ptr = ratings;
+        String ratingString = "";
+
+        while (ptr != null) {
+            ratingCounts[ptr.getStar() - 1]++;
+            ptr = ptr.getNext();
+        }
+        ratingString = "*("+ratingCounts[0]+")**("+ratingCounts[1]+")***("+ratingCounts[2]+")****("+ratingCounts[3]+")*****("+ratingCounts[4]+")(average rating: "+avgRatings()+")";
+        returnString = returnString + ratingString;
+        return returnString;
+    }
 }

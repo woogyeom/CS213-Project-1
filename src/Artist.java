@@ -7,8 +7,10 @@ public class Artist implements Comparable<Artist> {
         this.born = born;
     }
     public int compareTo(Artist art) {
-
-        return 0;
+        if (this.name.compareToIgnoreCase(art.name) != 0) {
+            return this.name.compareToIgnoreCase(art.name);
+        }
+        return this.born.compareTo(art.born);
     }
 
     public String getName() {
@@ -44,6 +46,7 @@ public class Artist implements Comparable<Artist> {
         // I don't exactly know what this method is supposed to do
         // Is it just supposed to list the name and the born date in String?
         // Unlike the toString method on the album class, the format is not give for this one
-        return " ";
+        // should it just be "Taylor Swift, 12/13/1989"?
+        return this.name + ", " + this.born.toString();
     }
 }

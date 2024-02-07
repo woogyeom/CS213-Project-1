@@ -82,8 +82,16 @@ public class Date implements Comparable<Date> {
     }
 
     public int compareTo(Date date) {
-        return 0;
-    }
+        if (this.year != date.year) {
+            return this.year - date.year;
+        }
+        if (this.month != date.month) {
+            return this.month - date.month;
+        }
+        return this.day - date.day;
+    } // returns -1 if this is earlier
+      // returns 0 if it's the same day
+      // returns 1 if this is later
 
 
     public static void main(String[] args){

@@ -91,7 +91,7 @@ public class Album {
     @Override
     public String toString() {
         String returnString = "";
-        returnString = returnString + "[" + title + "] Released " + released + "[" + artist.getName() + ":" + artist.getBorn() + "][" + genre + "] Rating: ";
+        returnString = returnString + "[" + title + "] Released " + released.toString() + "[" + artist.getName() + ":" + artist.getBorn() + "][" + genre + "] Rating: ";
 
         int[] ratingCounts = new int[5];
         Rating ptr = ratings;

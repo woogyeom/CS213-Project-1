@@ -58,17 +58,33 @@ public class Collection {
     }
     public void printByDate() {
         sortByDate();
+        System.out.println("* Collection sorted by Released Date/Title *");
         for (Album album : albums) {
             if (album != null) {
                 System.out.println(album.toString());
             }
         }
+        System.out.println("* end of list *");
     }
     public void printByGenre() {
-
+        sortByGenre();
+        System.out.println("* Collection sorted by Genre/Artist *");
+        for (Album album : albums) {
+            if (album != null) {
+                System.out.println(album.toString());
+            }
+        }
+        System.out.println("* end of list *");
     }
     public void printByRating() {
-
+        sortByRating();
+        System.out.println("* Collection sorted by Rating/Title *");
+        for (Album album : albums) {
+            if (album != null) {
+                System.out.println(album.toString());
+            }
+        }
+        System.out.println("* end of list *");
     }
     private void sortByDate() {
         for (int i = 0; i < size - 1; i++) {
@@ -91,9 +107,39 @@ public class Collection {
         }
     }
     private void sortByGenre() {
+        for (int i = 0; i < size - 1; i++) {
+            int minIndex = i;
+            for (int j = i+1; i < size; j++) {
+                if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) < 0) {
+                    minIndex = j;
+                } else if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) == 0) {
+                    if (albums[j].getArtist().getName().compareTo(albums[minIndex].getArtist().getName()) < 0) {
+                        minIndex = j;
+                    }
+                }
+            }
 
+            Album temp = albums[minIndex];
+            albums[minIndex] = albums[i];
+            albums[i] = temp;
+        }
     }
     private void sortByRating() {
+        for (int i = 0; i < size - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < size; j++) {
+                if (albums[j].avgRatings() < albums[minIndex].avgRatings()) {
+                    minIndex = j;
+                } else if (albums[j].avgRatings() == albums[minIndex].avgRatings()) {
+                    if (albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0) {
+                        minIndex = j;
+                    }
+                }
+            }
 
+            Album temp = albums[minIndex];
+            albums[minIndex] = albums[i];
+            albums[i] = temp;
+        }
     }
 }

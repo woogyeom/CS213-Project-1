@@ -39,7 +39,11 @@ public class Artist implements Comparable<Artist> {
             return false;
         }
         Artist artist = (Artist) obj;
-        return name.equalsIgnoreCase(artist.name) && born.equals(artist.born);
+        if (name.equalsIgnoreCase(artist.name) && born.compareTo(artist.born) == 0) {
+            return true;
+        } else {
+            return false;
+        }
     } // checks if the name and the born date is same
     @Override
     public String toString() {

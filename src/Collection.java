@@ -1,7 +1,7 @@
 public class Collection {
     private static final int INITIAL_CAPACITY = 4;
     private static final int GROWTH = 4;
-    private static final int NOT_FOUND = -1;
+    public static final int NOT_FOUND = -1;
     private Album[] albums;
     private int size;
 
@@ -10,7 +10,7 @@ public class Collection {
         size = 0;
     }
 
-    private int find(Album album) {
+    public int find(Album album) {
         for (int i = 0; i < size; i++) {
             if (albums[i].equals(album)) {
                 return i;
@@ -30,6 +30,7 @@ public class Collection {
     }
     public boolean add(Album album) {
         if (contains(album)) {
+            System.out.println("Debug False");
             return false;
         } // if there already is
         if (size == albums.length) {
@@ -52,9 +53,7 @@ public class Collection {
         return true;
     }
     public void rate(Album album, int rating) {
-        if (find(album) != NOT_FOUND) {
-            album.rate(rating);
-        }
+        album.rate(rating);
     }
     public void printByDate() {
         sortByDate();

@@ -5,6 +5,13 @@ public class Album {
     private Date released;
     private Rating ratings; //a linked list of ratings
 
+    public Album(String title, Artist artist, Genre genre, Date released) {
+        this.title = title;
+        this.artist = artist;
+        this.genre = genre;
+        this.released = released;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -85,13 +92,13 @@ public class Album {
         }
 
         Album album = (Album) obj;
-        return title.equals(album.title) && artist.equals(album.artist);
+        return title.equalsIgnoreCase(album.title) && artist.equals(album.artist);
     }
 
     @Override
-    public String toString() {
+    public String toString() { // Rating Display needs to be fixed.
         String returnString = "";
-        returnString = returnString + "[" + title + "] Released " + released.toString() + "[" + artist.getName() + ":" + artist.getBorn() + "][" + genre + "] Rating: ";
+        returnString = returnString + "[" + title + "] Released " + released.toString() + " [" + artist.getName() + ":" + artist.getBorn() + "] [" + genre + "] Rating: ";
 
         int[] ratingCounts = new int[5];
         Rating ptr = ratings;

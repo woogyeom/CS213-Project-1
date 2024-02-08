@@ -41,7 +41,17 @@ public class Collection {
         return true;
     }
     public boolean remove(Album album) {
-        int index = find(album);
+        //int index = find(album);   -not using find() because it compares entire album object, and we only get the title, artistName, and artistDob
+        int index = NOT_FOUND;
+        for (int i = 0; i < size; i++){
+            if (albums[i].getTitle().equals(album.getTitle())) {
+                if (albums[i].getArtist().getName().equals(album.getArtist().getName())) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+
         if (index == NOT_FOUND) {
             return false;
         } // if there isn't

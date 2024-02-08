@@ -12,6 +12,11 @@ public class Album {
         this.released = released;
     }
 
+    public Album(String title, Artist artist) {
+        this.title = title;
+        this.artist = artist;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -108,7 +113,13 @@ public class Album {
             ratingCounts[ptr.getStar() - 1]++;
             ptr = ptr.getNext();
         }
-        ratingString = "*("+ratingCounts[0]+")**("+ratingCounts[1]+")***("+ratingCounts[2]+")****("+ratingCounts[3]+")*****("+ratingCounts[4]+")(average rating: "+avgRatings()+")";
+
+        if (ratingCounts[0] == 0 && ratingCounts[1] == 0 && ratingCounts[2] == 0 && ratingCounts[3] == 0 && ratingCounts[4] == 0) {
+            ratingString = "none";
+        } else {
+            ratingString = "*(" + ratingCounts[0] + ")**(" + ratingCounts[1] + ")***(" + ratingCounts[2] + ")****(" + ratingCounts[3] + ")*****(" + ratingCounts[4] + ")(average rating: " + avgRatings() + ")";
+        }
+
         returnString = returnString + ratingString;
         return returnString;
     }

@@ -76,6 +76,19 @@ public class CollectionManager {
     }
 
     private void removeAlbum(String[] tokens) {
+        String title = tokens[1];
+        String artistName = tokens[2];
+        String artistDobString = tokens[3];
+        Date artistDob = stringToDate(artistDobString);
+        Artist artist = new Artist(artistName, artistDob);
+        Album album = new Album(title,artist);
+
+        if (collection.remove(album)) {
+            System.out.println(title + "(" + artistName + ":" + artistDobString + ") removed from the collection.");
+        } else {
+            System.out.println(title + "(" + artistName + ":" + artistDobString + ") is not in the collection");
+        }
+
 
     }
 

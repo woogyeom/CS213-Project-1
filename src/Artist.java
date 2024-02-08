@@ -51,6 +51,6 @@ public class Artist implements Comparable<Artist> {
         // Is it just supposed to list the name and the born date in String?
         // Unlike the toString method on the album class, the format is not give for this one
         // should it just be "Taylor Swift, 12/13/1989"?
-        return this.name + ", " + this.born.toString();
+        return this.name + ":" + this.born.toString();
     }
 }

@@ -103,6 +103,7 @@ public class CollectionManager {
         Album album = new Album(title, artist, null, null);
 
         int index = collection.find(album);
+
         if (index == Collection.NOT_FOUND) {
             System.out.println(title + "(" + artistName + ":" + artistDobString + ") is not in the collection");
             return;
@@ -112,7 +113,7 @@ public class CollectionManager {
             System.out.println("Invalid rating, rating scale is 1 to 5.");
             return;
         }
-        collection.rate(album, rating);
+        collection.rate(collection.getAlbum(index), rating); //chaange
         System.out.println("You rate " + rating + " for " + title + ":" + artistDobString + "(" + artistName + ")");
     }
     private Date stringToDate(String string) throws IllegalArgumentException {

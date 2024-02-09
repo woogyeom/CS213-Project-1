@@ -10,6 +10,10 @@ public class Collection {
         size = 0;
     }
 
+    public Album getAlbum(int i){
+        return albums[i];
+    }
+
     public int find(Album album) {
         for (int i = 0; i < size; i++) {
             if (albums[i].equals(album)) {
@@ -88,9 +92,9 @@ public class Collection {
     public void printByRating() {
         sortByRating();
         System.out.println("* Collection sorted by Rating/Title *");
-        for (Album album : albums) {
-            if (album != null) {
-                System.out.println(album.toString());
+        for (int i = size - 1; i >= 0; i--) {
+            if (albums[i] != null) {
+                System.out.println(albums[i].toString());
             }
         }
         System.out.println("* end of list *");
@@ -118,7 +122,7 @@ public class Collection {
     private void sortByGenre() {
         for (int i = 0; i < size - 1; i++) {
             int minIndex = i;
-            for (int j = i+1; i < size; j++) {
+            for (int j = i + 1; j < size; j++) {
                 if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) < 0) {
                     minIndex = j;
                 } else if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) == 0) {

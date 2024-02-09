@@ -10,11 +10,13 @@ public class Album {
         this.artist = artist;
         this.genre = genre;
         this.released = released;
+        this.ratings = null;
     }
 
     public Album(String title, Artist artist) {
         this.title = title;
         this.artist = artist;
+        this.ratings = null;
     }
 
     public String getTitle() {
@@ -59,7 +61,6 @@ public class Album {
 
     public void rate(int star) {
         Rating newRating = new Rating(star);
-
         if (ratings == null) {
             ratings = newRating;
         } else {
@@ -101,7 +102,7 @@ public class Album {
     }
 
     @Override
-    public String toString() { // Rating Display needs to be fixed.
+    public String toString() {
         String returnString = "";
         returnString = returnString + "[" + title + "] Released " + released.toString() + " [" + artist.getName() + ":" + artist.getBorn() + "] [" + genre + "] Rating: ";
 
@@ -113,6 +114,7 @@ public class Album {
             ratingCounts[ptr.getStar() - 1]++;
             ptr = ptr.getNext();
         }
+
 
         if (ratingCounts[0] == 0 && ratingCounts[1] == 0 && ratingCounts[2] == 0 && ratingCounts[3] == 0 && ratingCounts[4] == 0) {
             ratingString = "none";

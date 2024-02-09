@@ -30,7 +30,7 @@ public class Collection {
     }
     public boolean add(Album album) {
         if (contains(album)) {
-            System.out.println("Debug False");
+            //System.out.println("Debug False");
             return false;
         } // if there already is
         if (size == albums.length) {

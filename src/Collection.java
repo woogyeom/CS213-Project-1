@@ -79,7 +79,7 @@ public class Collection {
             System.out.println("* Collection sorted by Released Date/Title *");
             for (Album album : albums) {
                 if (album != null) {
-                    System.out.println(album.toString());
+                    System.out.println(album);
                 }
             }
             System.out.println("* end of list *");
@@ -93,7 +93,7 @@ public class Collection {
             System.out.println("* Collection sorted by Genre/Artist *");
             for (Album album : albums) {
                 if (album != null) {
-                    System.out.println(album.toString());
+                    System.out.println(album);
                 }
             }
             System.out.println("* end of list *");

@@ -64,22 +64,6 @@ public class Date implements Comparable<Date> {
         }
     }
 
-    public boolean isLeapYear() {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
     public int compareTo(Date date) {
         if (this.year != date.year) {
             return this.year - date.year;

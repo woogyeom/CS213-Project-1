@@ -119,8 +119,8 @@ public class CollectionManager {
             System.out.println("Invalid rating, rating scale is 1 to 5.");
             return;
         }
-        collection.rate(collection.getAlbum(index), rating); //chaange
-        System.out.println("You rate " + rating + " for " + title + ":" + artistDobString + "(" + artistName + ")");
+        collection.rate(collection.getAlbum(index), rating); //change
+        System.out.println("You rate " + rating + " for " + title + ":" + collection.getAlbum(index).getReleased().toString() + "(" + artistName + ")");
     }
     private Date stringToDate(String string) throws IllegalArgumentException {
         String[] tokens = string.split("/");

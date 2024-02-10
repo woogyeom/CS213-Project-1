@@ -1,3 +1,4 @@
+import java.util.Calendar;
 public class Date implements Comparable<Date> {
     private int year;
     private int month;
@@ -37,33 +38,31 @@ public class Date implements Comparable<Date> {
         return month + "/" + day + "/" + year;
     }
 
-    public boolean isValid(){
-        //valid day
-        if (day > 31 || day < 1) {
+    public boolean isValid() {
+        if (year < 1900) {
             return false;
         }
-        if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) {
+        if (month < 1 || month > 12) {
             return false;
         }
-        if (day > 29 && month == 2) {
-            return false;
+
+        Calendar today = Calendar.getInstance();
+
+        Calendar input = Calendar.getInstance();
+        input.setLenient(false);
+        input.set(year, month - 1, day);
+
+        if (input.after(today)) {
+            return false; // today or a future date
         }
-        if (day == 29 && month == 2) {
-            //checking if it is a leap year
-            if (!isLeapYear()) {
-                return false;
-            }
+
+        try {
+            input.getTime();
+            return true;
+        } catch (Exception e) {
+            return false; // not a valid calendar date
         }
-        //valid month
-        if (month > 12 || month < 1) {
-            return false;
-        }
-        //valid year
-        if (year < 0 || year > 2024) {
-            return false;
-        }
-        return true;
-    } //check if the date is a valid calendar date
+    }
 
     public boolean isLeapYear() {
         if (year % 4 == 0) {

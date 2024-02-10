@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 public class Album {
     private String title;
     private Artist artist;
@@ -115,11 +116,13 @@ public class Album {
             ptr = ptr.getNext();
         }
 
+        DecimalFormat df = new DecimalFormat("#.00");
+        String dfAverage = df.format(avgRatings());
 
         if (ratingCounts[0] == 0 && ratingCounts[1] == 0 && ratingCounts[2] == 0 && ratingCounts[3] == 0 && ratingCounts[4] == 0) {
             ratingString = "none";
         } else {
-            ratingString = "*(" + ratingCounts[0] + ")**(" + ratingCounts[1] + ")***(" + ratingCounts[2] + ")****(" + ratingCounts[3] + ")*****(" + ratingCounts[4] + ")(average rating: " + avgRatings() + ")";
+            ratingString = "*(" + ratingCounts[0] + ")**(" + ratingCounts[1] + ")***(" + ratingCounts[2] + ")****(" + ratingCounts[3] + ")*****(" + ratingCounts[4] + ")(average rating: " + dfAverage + ")";
         }
 
         returnString = returnString + ratingString;

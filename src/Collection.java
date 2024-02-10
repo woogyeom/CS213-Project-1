@@ -139,13 +139,18 @@ public class Collection {
             for (int j = i + 1; j < size; j++) {
                 if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) < 0) {
                     minIndex = j;
-                } else if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) == 0) {
+                } else if (albums[j].getGenre().equals(albums[minIndex].getGenre())) {
+                    // If two albums have the same genre, sort by the artists.
                     if (albums[j].getArtist().getName().compareTo(albums[minIndex].getArtist().getName()) < 0) {
                         minIndex = j;
+                    } else if (albums[j].getArtist().getName().equals(albums[minIndex].getArtist().getName())) {
+                        // If two artists have the same name, sort by their dates of birth.
+                        if (albums[j].getArtist().getBorn().compareTo(albums[minIndex].getArtist().getBorn()) < 0) {
+                            minIndex = j;
+                        }
                     }
                 }
             }
-
             Album temp = albums[minIndex];
             albums[minIndex] = albums[i];
             albums[i] = temp;
@@ -158,6 +163,7 @@ public class Collection {
                 if (albums[j].avgRatings() < albums[minIndex].avgRatings()) {
                     minIndex = j;
                 } else if (albums[j].avgRatings() == albums[minIndex].avgRatings()) {
+                    // If two albums have the same average rating, sort by the titles in lexicographical order.
                     if (albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0) {
                         minIndex = j;
                     }

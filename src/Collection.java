@@ -70,34 +70,46 @@ public class Collection {
         album.rate(rating);
     }
     public void printByDate() {
-        sortByDate();
-        System.out.println("* Collection sorted by Released Date/Title *");
-        for (Album album : albums) {
-            if (album != null) {
-                System.out.println(album.toString());
+        if (size == 0) {
+            System.out.println("Collection is empty!");
+        } else {
+            sortByDate();
+            System.out.println("* Collection sorted by Released Date/Title *");
+            for (Album album : albums) {
+                if (album != null) {
+                    System.out.println(album.toString());
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     public void printByGenre() {
-        sortByGenre();
-        System.out.println("* Collection sorted by Genre/Artist *");
-        for (Album album : albums) {
-            if (album != null) {
-                System.out.println(album.toString());
+        if (size == 0) {
+            System.out.println("Collection is empty!");
+        } else {
+            sortByGenre();
+            System.out.println("* Collection sorted by Genre/Artist *");
+            for (Album album : albums) {
+                if (album != null) {
+                    System.out.println(album.toString());
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     public void printByRating() {
-        sortByRating();
-        System.out.println("* Collection sorted by Rating/Title *");
-        for (int i = size - 1; i >= 0; i--) {
-            if (albums[i] != null) {
-                System.out.println(albums[i].toString());
+        if (size == 0) {
+            System.out.println("Collection is empty!");
+        } else {
+            sortByRating();
+            System.out.println("* Collection sorted by Rating/Title *");
+            for (int i = size - 1; i >= 0; i--) {
+                if (albums[i] != null) {
+                    System.out.println(albums[i].toString());
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     private void sortByDate() {
         for (int i = 0; i < size - 1; i++) {

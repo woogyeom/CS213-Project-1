@@ -59,13 +59,13 @@ public class Date implements Comparable<Date> {
             return false;
         }
         //valid year
-        if (year < 0 || year > 2024) {
+        if (year < 1900 || year > 2024) {
             return false;
         }
         return true;
     } //check if the date is a valid calendar date
 
-    public boolean isLeapYear() {
+    private boolean isLeapYear() {
         if (year % 4 == 0) {
             if (year % 100 == 0) {
                 if (year % 400 == 0) {
@@ -95,6 +95,23 @@ public class Date implements Comparable<Date> {
 
 
     public static void main(String[] args){
+        Date dateTest1 = new Date(13, 15, 2024);
+        Date dateTest2 = new Date(2, 29, 2023);
+        Date dateTest3 = new Date(4, 31, 2024);
+        Date dateTest4 = new Date(2, 29, 1900);
+        Date dateTest5 = new Date(12, 31, 1899);
+        Date dateTest6 = new Date(2, 29, 2000);
+        Date dateTest7 = new Date(7, 15, 2024);
+
+        System.out.println(dateTest1.isValid()); //False - Invalid date - month out of range
+        System.out.println(dateTest2.isValid()); //False - Invalid date - Day beyond range for Feb in non-leap year
+        System.out.println(dateTest3.isValid()); //False - Invalid date - Day beyond range for a month
+        System.out.println(dateTest4.isValid()); //False - Invalid date - Day beyond range, as 1900 was not a leap year
+        System.out.println(dateTest5.isValid()); //False - Invalid date - Year is before 1900
+        System.out.println(dateTest6.isValid()); //True - Valid Leap year date
+        System.out.println(dateTest7.isValid()); //True - Valid standard date
+
+
 
     }
 }

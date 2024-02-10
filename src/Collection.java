@@ -70,6 +70,11 @@ public class Collection {
         album.rate(rating);
     }
     public void printByDate() {
+        if (albums[0] == null) {
+            System.out.println("Collection is empty!");
+            return;
+        }
+
         sortByDate();
         System.out.println("* Collection sorted by Released Date/Title *");
         for (Album album : albums) {
@@ -80,6 +85,11 @@ public class Collection {
         System.out.println("* end of list *");
     }
     public void printByGenre() {
+        if (albums[0] == null) {
+            System.out.println("Collection is empty!");
+            return;
+        }
+
         sortByGenre();
         System.out.println("* Collection sorted by Genre/Artist *");
         for (Album album : albums) {
@@ -90,6 +100,11 @@ public class Collection {
         System.out.println("* end of list *");
     }
     public void printByRating() {
+        if (albums[0] == null) {
+            System.out.println("Collection is empty!");
+            return;
+        }
+
         sortByRating();
         System.out.println("* Collection sorted by Rating/Title *");
         for (int i = size - 1; i >= 0; i--) {

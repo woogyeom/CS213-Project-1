@@ -25,42 +25,43 @@ public class CollectionManager {
      * removing, and rating albums, as well as printing the collection in various orders.
      */
     public void run() {
-        try (BufferedReader br = new BufferedReader(new FileReader("Project1TestCases.txt"))) {
-            String input;
-            while ((input = br.readLine()) != null) {
-                String[] tokens = input.split(",");
+        Scanner scanner = new Scanner(System.in);
 
-                switch (tokens[0]) {
-                    case "A": // add an album
-                        addAlbum(tokens);
-                        break;
-                    case "D": // remove the album
-                        removeAlbum(tokens);
-                        break;
-                    case "R": // rate the album
-                        rateAlbum(tokens);
-                        break;
-                    case "PD": // print by date
-                        collection.printByDate();
-                        break;
-                    case "PG": // print by genre
-                        collection.printByGenre();
-                        break;
-                    case "PR": // print by rating
-                        collection.printByRating();
-                        break;
-                    case "Q":  // quit
-                        System.out.println("Collection Manager terminated.");
-                        return;
-                    case "": // empty line
-                        break;
-                    default:
-                        System.out.println("Invalid command!");
-                        break;
-                }
+        while (true) {
+            String input = scanner.nextLine();
+            String[] tokens = input.split(",");
+
+            switch (tokens[0]) {
+                case "A": // add an album
+                    addAlbum(tokens);
+                    break;
+                case "D": // remove the album
+                    removeAlbum(tokens);
+                    break;
+                case "R": // rate the album
+                    rateAlbum(tokens);
+                    break;
+                case "PD": // print by date
+                    collection.printByDate();
+                    break;
+                case "PG": // print by genre
+                    collection.printByGenre();
+                    break;
+                case "PR": // print by rating
+                    collection.printByRating();
+                    break;
+                case "Q":  // quit
+                    System.out.println("Collection Manager terminated.");
+                    return;
+                case "PA":
+                    collection.pirntAll();
+                    break;
+                case "": // empty line
+                    break;
+                default:
+                    System.out.println("Invalid command!");
+                    break;
             }
-        } catch (IOException e) {
-            System.err.println("Error reading input file: " + e.getMessage());
         }
     }
 

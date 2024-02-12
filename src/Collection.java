@@ -126,6 +126,20 @@ public class Collection {
         album.rate(rating);
     }
 
+    public void pirntAll() {
+        if (size == 0) {
+            System.out.println("Collection is empty!");
+        } else {
+            System.out.println("* Collection *");
+            for (Album album : albums) {
+                if (album != null) {
+                    System.out.println(album);
+                }
+            }
+            System.out.println("* end of list *");
+        }
+    }
+
     /**
      * Prints the albums in the collection sorted by release date.
      */
@@ -242,8 +256,7 @@ public class Collection {
                     minIndex = j;
                 } else if (albums[j].avgRatings() == albums[minIndex].avgRatings()) {
                     // If two albums have the same average rating, sort by the titles in lexicographical order.
-                    System.out.println(albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0);
-                    if (albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0) {
+                    if (albums[j].getTitle().compareToIgnoreCase(albums[minIndex].getTitle()) > 0) {
                         minIndex = j;
                     }
                 }

@@ -1,0 +1,120 @@
+a
+d
+r
+pd
+pg
+pr
+a blah blah blah
+AA
+DD
+RR
+PD
+PG
+PR
+A BLAH BLAH BLAH
+A,A fun album,xxx,0/2/2000,xxx,1/2/2000
+A,A fun album,xxx,13/2/2020,xxx,12/2/2020
+A,A fun album,xxx,2/29/2021,xxx,2/28/2021
+A,A fun album,xxx,4/31/2009,xxx,4/30/2009
+A,A fun album,xxx,3/32/2009,xxx,3/31/2009
+A,A fun album,xxx,3/31/1899,xxx,3/31/1999
+A,A fun album,xxx,3/31/2025,xxx,1/31/2024
+A,A fun album,xxx,2/29/2024,xxx,1/29/2024
+A,A fun album,xxx,11/0/2021,xxx,11/1/2021
+
+A,A fun album,xxx,1/2/2000,xxx,0/2/2000
+A,A fun album,xxx,12/2/2020,xxx,13/2/2020
+A,A fun album,xxx,2/28/2021,xxx,2/29/2021
+A,A fun album,xxx,4/30/2009,xxx,4/31/2009
+A,A fun album,xxx,3/31/2009,xxx,3/32/2009
+A,A fun album,xxx,3/31/1999,xxx,3/31/1899
+A,A fun album,xxx,1/1/2024,xxx,3/31/2025
+A,A fun album,xxx,1/9/2024,xxx,2/29/2024
+A,A fun album,xxx,11/1/2021,xxx,11/0/2021
+
+A,Fearless,Taylor Swift,12/13/1989,pop,11/8/2008
+A,Fearless,Taylor Swift,12/13/1989,pop,11/8/2008
+A,FEARLESS,TAYLOR SWIFT,12/13/1989,pop,11/8/2008
+
+A,Midnights,Taylor Swift,12/13/1989,pop,3/25/2022
+A,Losing Sleep,Chris Young,6/12/1985,country,10/20/2017
+A,losing sleep,chris young,6/12/1985,country,10/20/2017
+A,Famous Friends,Chris Young,6/12/1985,Country,8/6/2021
+A,Hero,Maren Morris,4/10/1990,country,6/3/2016
+A,Humble Quest,Maren Morris,4/10/1990,country,3/25/2022
+A,Ghost Stories,Coldplay,1/1/1997,pop,5/16/2014
+A,A Rush of Blood to the Head,Coldplay,1/1/1997,pop,3/25/2022
+A,Debussy:La Mer,Simon Rattle,1/19/1955,classical,9/13/2005
+A,Wonderful Town,Simon Rattle,1/19/1955,classical,9/14/1999
+A,Debussy:La Mer,Gary Bertini,5/1/1927,classical,1/1/2006
+A,Mahler:Symphonies 1-10,Gary Bertini,5/1/1927,classical,1/10/2006
+A,Debussy:La Mer,Leonard Bernstein,8/15/1918,classical,2/28/1995
+A,Bernstein's Complete Recordings on Deutsche Grammophon,Leonard Bernstein,8/15/1918,classical,11/8/2005
+A,Debussy:La Mer,Michael Tilson Thomas,12/21/1944,classical,1/1/2001
+A,Blue,April,1/1/2015,international,3/1/2018
+A,Blue,April,1/11/2015,international,3/1/2018
+A,Blue,April,1/1/2015,international,3/1/2018
+A,Piece of Me,April,4/30/2000,pop,11/1/2021
+A,The Way of the World,Mose Allison,11/11/1927,jazz,3/23/2010
+A,Pure Mose,Mose Allison,11/11/1927,jazz,7/9/1996
+A,Dream Louder,Rotem Sivan,2/14/1989,jazz,1/12/2024
+A,True to Life,Ray Charles,9/23/1930,jazz,10/1/1977
+A,Testing Album,Ray Charles,9/29/1930,jazz,10/31/1977
+A,Queen of Hearts,Joan Baez,1/9/1941,folk,1/1/1989
+
+D,BLUE,APRIL,1/11/2015
+D,blue,april,1/11/2015
+D,Blue,April,1/11/2015
+D,Fearless,Taylor Swift,12/13/1989
+D,Fearless,Taylor Swift,12/13/1989
+A,Fearless,Taylor Swift,12/13/1989,pop,11/8/2008
+PD
+
+R,Fearless,Taylor Swift,12/13/1989,0
+R,Fearless,Taylor Swift,12/13/1989,6
+R,Fearless,Taylor Swift,12/13/1989,5
+R,Fearless,Taylor Swift,12/13/1989,3
+R,Fearless,Taylor Swift,12/13/1989,2
+R,Fearless,Taylor Swift,12/13/1989,3
+R,Fearless,Taylor Swift,12/13/1989,4
+R,Fearless,Taylor Swift,12/13/1989,4
+R,Fearless,Taylor Swift,12/13/1989,5
+R,Fearless,Taylor Swift,12/13/1989,5
+R,Fearless,Taylor Swift,12/13/1989,1
+R,Fearless,Taylor Swift,12/13/1989,1
+
+R,Debussy:La Mer,Michael Tilson Thomas,12/21/1944,4
+R,Debussy:La Mer,Michael Tilson Thomas,12/21/1944,3
+R,Debussy:La Mer,Leonard Bernstein,8/15/1918,5
+R,Debussy:La Mer,Leonard Bernstein,8/15/1918,2
+R,Blue,April,1/1/2015,3
+R,Blue,April,1/11/2015,4
+R,Ghost Stories,Coldplay,1/1/1997,5
+R,Ghost Stories,Coldplay,1/1/1997,4
+R,Ghost Stories,Coldplay,1/1/1997,3
+R,Ghost Stories,Coldplay,1/1/1997,2
+R,Ghost Stories,Coldplay,1/1/1997,1
+R,Ghost Stories,Coldplay,1/1/1997,0
+R,Midnights,Taylor Swift,12/13/1989,5
+R,Piece of Me,April,4/30/2000,1
+R,Wonderful Town,Simon Rattle,1/19/1955,2
+R,Dream Louder,Rotem Sivan,2/14/1989,4
+R,Dream Louder,Rotem Sivan,2/14/1989,5
+
+PD
+PR
+PG
+
+q
+Q
+A,this line should not be processed,xxx,xxx,11/11/2020
+
+
+
+
+
+
+
+
+
+

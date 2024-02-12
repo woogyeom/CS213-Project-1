@@ -3,7 +3,7 @@
 public class RunProject1 {
     public static void main(String[] args) {
         CollectionManager collectionManager = new CollectionManager();
-        System.out.println("Collection Manager is up running.");
+        System.out.println("Collection Manager is up running.\n");
         collectionManager.run();
     }
 

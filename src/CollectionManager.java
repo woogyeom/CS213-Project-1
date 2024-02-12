@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 public class CollectionManager {
     private Collection collection;
     public  CollectionManager() {
@@ -7,38 +9,42 @@ public class CollectionManager {
     }
 
     public void run() {
-        Scanner scanner = new Scanner(System.in);
+        try (BufferedReader br = new BufferedReader(new FileReader("Project1TestCases.txt"))) {
+            String input;
+            while ((input = br.readLine()) != null) {
+                String[] tokens = input.split(",");
 
-        while (true) {
-            String input = scanner.nextLine();
-            String[] tokens = input.split(",");
-
-            switch (tokens[0]) {
-                case "A": // add an album
-                    addAlbum(tokens);
-                    break;
-                case "D": // remove the album
-                    removeAlbum(tokens);
-                    break;
-                case "R": // rate the album
-                    rateAlbum(tokens);
-                    break;
-                case "PD": // print by date
-                    collection.printByDate();
-                    break;
-                case "PG": // print by genre
-                    collection.printByGenre();
-                    break;
-                case "PR": // print by rating
-                    collection.printByRating();
-                    break;
-                case "Q":  // quit
-                    System.out.println("Collection Manager terminated.");
-                    return;
-                default:
-                    System.out.println("Invalid command!");
-                    break;
+                switch (tokens[0]) {
+                    case "A": // add an album
+                        addAlbum(tokens);
+                        break;
+                    case "D": // remove the album
+                        removeAlbum(tokens);
+                        break;
+                    case "R": // rate the album
+                        rateAlbum(tokens);
+                        break;
+                    case "PD": // print by date
+                        collection.printByDate();
+                        break;
+                    case "PG": // print by genre
+                        collection.printByGenre();
+                        break;
+                    case "PR": // print by rating
+                        collection.printByRating();
+                        break;
+                    case "Q":  // quit
+                        System.out.println("Collection Manager terminated.");
+                        return;
+                    case "": // empty line
+                        break;
+                    default:
+                        System.out.println("Invalid command!");
+                        break;
+                }
             }
+        } catch (IOException e) {
+            System.err.println("Error reading input file: " + e.getMessage());
         }
     }
 
@@ -113,8 +119,8 @@ public class CollectionManager {
             System.out.println("Invalid rating, rating scale is 1 to 5.");
             return;
         }
-        collection.rate(collection.getAlbum(index), rating); //chaange
-        System.out.println("You rate " + rating + " for " + title + ":" + artistDobString + "(" + artistName + ")");
+        collection.rate(collection.getAlbum(index), rating); //change
+        System.out.println("You rate " + rating + " for " + title + ":" + collection.getAlbum(index).getReleased().toString() + "(" + artistName + ")");
     }
     private Date stringToDate(String string) throws IllegalArgumentException {
         String[] tokens = string.split("/");

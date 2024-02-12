@@ -48,10 +48,12 @@ public class Collection {
         //int index = find(album);   -not using find() because it compares entire album object, and we only get the title, artistName, and artistDob
         int index = NOT_FOUND;
         for (int i = 0; i < size; i++){
-            if (albums[i].getTitle().equals(album.getTitle())) {
-                if (albums[i].getArtist().getName().equals(album.getArtist().getName())) {
-                    index = i;
-                    break;
+            if (albums[i].getTitle().equalsIgnoreCase(album.getTitle())) {
+                if (albums[i].getArtist().getName().equalsIgnoreCase(album.getArtist().getName())) {
+                    if (albums[i].getArtist().getBorn().compareTo(album.getArtist().getBorn()) == 0) {
+                        index = i;
+                        break;
+                    }
                 }
             }
         }
@@ -70,49 +72,46 @@ public class Collection {
         album.rate(rating);
     }
     public void printByDate() {
-        if (albums[0] == null) {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-            return;
-        }
-
-        sortByDate();
-        System.out.println("* Collection sorted by Released Date/Title *");
-        for (Album album : albums) {
-            if (album != null) {
-                System.out.println(album.toString());
+        } else {
+            sortByDate();
+            System.out.println("* Collection sorted by Released Date/Title *");
+            for (Album album : albums) {
+                if (album != null) {
+                    System.out.println(album);
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     public void printByGenre() {
-        if (albums[0] == null) {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-            return;
-        }
-
-        sortByGenre();
-        System.out.println("* Collection sorted by Genre/Artist *");
-        for (Album album : albums) {
-            if (album != null) {
-                System.out.println(album.toString());
+        } else {
+            sortByGenre();
+            System.out.println("* Collection sorted by Genre/Artist *");
+            for (Album album : albums) {
+                if (album != null) {
+                    System.out.println(album);
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     public void printByRating() {
-        if (albums[0] == null) {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-            return;
-        }
-
-        sortByRating();
-        System.out.println("* Collection sorted by Rating/Title *");
-        for (int i = size - 1; i >= 0; i--) {
-            if (albums[i] != null) {
-                System.out.println(albums[i].toString());
+        } else {
+            sortByRating();
+            System.out.println("* Collection sorted by Rating/Title *");
+            for (int i = size - 1; i >= 0; i--) {
+                if (albums[i] != null) {
+                    System.out.println(albums[i].toString());
+                }
             }
+            System.out.println("* end of list *");
         }
-        System.out.println("* end of list *");
     }
     private void sortByDate() {
         for (int i = 0; i < size - 1; i++) {
@@ -140,13 +139,18 @@ public class Collection {
             for (int j = i + 1; j < size; j++) {
                 if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) < 0) {
                     minIndex = j;
-                } else if (albums[j].getGenre().compareTo(albums[minIndex].getGenre()) == 0) {
+                } else if (albums[j].getGenre().equals(albums[minIndex].getGenre())) {
+                    // If two albums have the same genre, sort by the artists.
                     if (albums[j].getArtist().getName().compareTo(albums[minIndex].getArtist().getName()) < 0) {
                         minIndex = j;
+                    } else if (albums[j].getArtist().getName().equals(albums[minIndex].getArtist().getName())) {
+                        // If two artists have the same name, sort by their dates of birth.
+                        if (albums[j].getArtist().getBorn().compareTo(albums[minIndex].getArtist().getBorn()) < 0) {
+                            minIndex = j;
+                        }
                     }
                 }
             }
-
             Album temp = albums[minIndex];
             albums[minIndex] = albums[i];
             albums[i] = temp;
@@ -159,6 +163,7 @@ public class Collection {
                 if (albums[j].avgRatings() < albums[minIndex].avgRatings()) {
                     minIndex = j;
                 } else if (albums[j].avgRatings() == albums[minIndex].avgRatings()) {
+                    // If two albums have the same average rating, sort by the titles in lexicographical order.
                     if (albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0) {
                         minIndex = j;
                     }

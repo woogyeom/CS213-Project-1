@@ -1,3 +1,4 @@
+import java.util.Calendar;
 public class Date implements Comparable<Date> {
     private int year;
     private int month;
@@ -37,47 +38,29 @@ public class Date implements Comparable<Date> {
         return month + "/" + day + "/" + year;
     }
 
-    public boolean isValid(){
-        //valid day
-        if (day > 31 || day < 1) {
+    public boolean isValid() {
+        if (year < 1900) {
             return false;
         }
-        if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) {
+        if (month < 1 || month > 12) {
             return false;
         }
-        if (day > 29 && month == 2) {
-            return false;
-        }
-        if (day == 29 && month == 2) {
-            //checking if it is a leap year
-            if (!isLeapYear()) {
-                return false;
-            }
-        }
-        //valid month
-        if (month > 12 || month < 1) {
-            return false;
-        }
-        //valid year
-        if (year < 1900 || year > 2024) {
-            return false;
-        }
-        return true;
-    } //check if the date is a valid calendar date
 
-    private boolean isLeapYear() {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        } else {
-            return false;
+        Calendar today = Calendar.getInstance();
+
+        Calendar input = Calendar.getInstance();
+        input.setLenient(false);
+        input.set(year, month - 1, day);
+
+        if (input.after(today)) {
+            return false; // today or a future date
+        }
+
+        try {
+            input.getTime();
+            return true;
+        } catch (Exception e) {
+            return false; // not a valid calendar date
         }
     }
 
@@ -95,23 +78,6 @@ public class Date implements Comparable<Date> {
 
 
     public static void main(String[] args){
-        Date dateTest1 = new Date(13, 15, 2024);
-        Date dateTest2 = new Date(2, 29, 2023);
-        Date dateTest3 = new Date(4, 31, 2024);
-        Date dateTest4 = new Date(2, 29, 1900);
-        Date dateTest5 = new Date(12, 31, 1899);
-        Date dateTest6 = new Date(2, 29, 2000);
-        Date dateTest7 = new Date(7, 15, 2024);
-
-        System.out.println(dateTest1.isValid()); //False - Invalid date - month out of range
-        System.out.println(dateTest2.isValid()); //False - Invalid date - Day beyond range for Feb in non-leap year
-        System.out.println(dateTest3.isValid()); //False - Invalid date - Day beyond range for a month
-        System.out.println(dateTest4.isValid()); //False - Invalid date - Day beyond range, as 1900 was not a leap year
-        System.out.println(dateTest5.isValid()); //False - Invalid date - Year is before 1900
-        System.out.println(dateTest6.isValid()); //True - Valid Leap year date
-        System.out.println(dateTest7.isValid()); //True - Valid standard date
-
-
 
     }
 }

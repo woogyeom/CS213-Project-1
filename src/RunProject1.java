@@ -1,5 +1,9 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Runs the CollectionManager.Java file, and is the entry point of the project.
+ *
+ * @author Woogyeom Sim, Aravind Chundu
+ */
+
 public class RunProject1 {
     public static void main(String[] args) {
         CollectionManager collectionManager = new CollectionManager();

@@ -2,12 +2,28 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+/**
+ * Manages a collection of music albums, including adding, removing, and rating albums.
+ * Reads commands from input and executes operations such as printing the collection
+ * sorted by date, genre, or rating.
+ *
+ * @author Woogyeom Sim, Aravind Chundu
+ */
 public class CollectionManager {
     private Collection collection;
+
+    /**
+     * Constructs a CollectionManager object and initializes the album collection.
+     */
     public  CollectionManager() {
         this.collection = new Collection();
     }
 
+    /**
+     * Processes commands from a file to manage the album collection. Supports adding,
+     * removing, and rating albums, as well as printing the collection in various orders.
+     */
     public void run() {
         try (BufferedReader br = new BufferedReader(new FileReader("Project1TestCases.txt"))) {
             String input;
@@ -48,6 +64,12 @@ public class CollectionManager {
         }
     }
 
+    /**
+     * Adds an album to the collection based on input tokens.
+     * Validates the artist's date of birth and the album's release date before adding.
+     *
+     * @param tokens An array of string tokens containing album details.
+     */
     private void addAlbum(String[] tokens) {
         String title = tokens[1];
         String artistName = tokens[2];
@@ -81,6 +103,12 @@ public class CollectionManager {
         }
     }
 
+    /**
+     * Removes an album from the collection based on input tokens.
+     * Matches the album by title and artist before attempting to remove.
+     *
+     * @param tokens An array of string tokens containing album details to remove.
+     */
     private void removeAlbum(String[] tokens) {
         String title = tokens[1];
         String artistName = tokens[2];
@@ -98,6 +126,12 @@ public class CollectionManager {
 
     }
 
+    /**
+     * Rates an existing album in the collection.
+     * Finds the album by title and artist and applies the specified rating.
+     *
+     * @param tokens An array of string tokens containing album details and the rating.
+     */
     private void rateAlbum(String[] tokens) {
         String title = tokens[1];
         String artistName = tokens[2];
@@ -122,6 +156,14 @@ public class CollectionManager {
         collection.rate(collection.getAlbum(index), rating); //change
         System.out.println("You rate " + rating + " for " + title + ":" + collection.getAlbum(index).getReleased().toString() + "(" + artistName + ")");
     }
+
+    /**
+     * Converts a string representation of a date (mm/dd/yyyy) into a Date object.
+     *
+     * @param string The string representation of the date.
+     * @return A Date object representing the specified date.
+     * @throws IllegalArgumentException If the date string is in an invalid format.
+     */
     private Date stringToDate(String string) throws IllegalArgumentException {
         String[] tokens = string.split("/");
 

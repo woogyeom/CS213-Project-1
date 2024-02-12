@@ -1,3 +1,11 @@
+/**
+ * Represents a collection of music albums, enabling operations such as add, remove, rate,
+ * and sort albums in various orders (by date, genre, or rating). It employs a dynamic array
+ * to store the albums, which grows as needed to accommodate new additions.
+ *
+ * @author Woogyeom Sim, Aravind Chundu
+ */
+
 public class Collection {
     private static final int INITIAL_CAPACITY = 4;
     private static final int GROWTH = 4;
@@ -5,15 +13,30 @@ public class Collection {
     private Album[] albums;
     private int size;
 
+    /**
+     * Constructs an empty Collection with an initial capacity.
+     */
     public Collection() {
         albums = new Album[INITIAL_CAPACITY];
         size = 0;
     }
 
+    /**
+     * Retrieves the album at the specified index.
+     *
+     * @param i The index of the album to retrieve.
+     * @return The album at the specified index.
+     */
     public Album getAlbum(int i){
         return albums[i];
     }
 
+    /**
+     * Finds the index of a given album in the collection.
+     *
+     * @param album The album to find.
+     * @return The index of the album if found, otherwise NOT_FOUND.
+     */
     public int find(Album album) {
         for (int i = 0; i < size; i++) {
             if (albums[i].equals(album)) {
@@ -22,6 +45,9 @@ public class Collection {
         }
         return NOT_FOUND;
     }
+    /**
+     * Increases the size of the albums array to accommodate more albums.
+     */
     private void grow() {
         Album[] newAlbums = new Album[albums.length + GROWTH];
         for (int i = 0; i < size; i++) {
@@ -29,9 +55,23 @@ public class Collection {
         }
         albums = newAlbums;
     }
+
+    /**
+     * Checks if the collection contains a given album.
+     *
+     * @param album The album to check.
+     * @return true if the album is in the collection, false otherwise.
+     */
     public boolean contains(Album album) {
         return find(album) != NOT_FOUND;
     }
+
+    /**
+     * Adds an album to the collection if it's not already present.
+     *
+     * @param album The album to add.
+     * @return true if the album was added, false if it was already in the collection.
+     */
     public boolean add(Album album) {
         if (contains(album)) {
             //System.out.println("Debug False");
@@ -44,6 +84,13 @@ public class Collection {
         size++;
         return true;
     }
+
+    /**
+     * Removes a given album from the collection.
+     *
+     * @param album The album to remove.
+     * @return true if the album was removed, false if it was not found.
+     */
     public boolean remove(Album album) {
         //int index = find(album);   -not using find() because it compares entire album object, and we only get the title, artistName, and artistDob
         int index = NOT_FOUND;
@@ -68,9 +115,20 @@ public class Collection {
         albums[size] = null;
         return true;
     }
+
+    /**
+     * Rates an album in the collection.
+     *
+     * @param album The album to rate.
+     * @param rating The rating to assign to the album.
+     */
     public void rate(Album album, int rating) {
         album.rate(rating);
     }
+
+    /**
+     * Prints the albums in the collection sorted by release date.
+     */
     public void printByDate() {
         if (size == 0) {
             System.out.println("Collection is empty!");
@@ -85,6 +143,10 @@ public class Collection {
             System.out.println("* end of list *");
         }
     }
+
+    /**
+     * Prints the albums in the collection sorted by genre.
+     */
     public void printByGenre() {
         if (size == 0) {
             System.out.println("Collection is empty!");
@@ -99,6 +161,10 @@ public class Collection {
             System.out.println("* end of list *");
         }
     }
+
+    /**
+     * Prints the albums in the collection sorted by average rating.
+     */
     public void printByRating() {
         if (size == 0) {
             System.out.println("Collection is empty!");
@@ -113,6 +179,10 @@ public class Collection {
             System.out.println("* end of list *");
         }
     }
+
+    /**
+     * Sorts the albums in the collection by their release date.
+     */
     private void sortByDate() {
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - 1; j++) {
@@ -133,6 +203,10 @@ public class Collection {
             }
         }
     }
+
+    /**
+     * Sorts the albums in the collection by genre.
+     */
     private void sortByGenre() {
         for (int i = 0; i < size - 1; i++) {
             int minIndex = i;
@@ -156,6 +230,10 @@ public class Collection {
             albums[i] = temp;
         }
     }
+
+    /**
+     * Sorts the albums in the collection by their average rating.
+     */
     private void sortByRating() {
         for (int i = 0; i < size - 1; i++) {
             int minIndex = i;

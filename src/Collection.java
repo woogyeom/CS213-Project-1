@@ -229,12 +229,16 @@ public class Collection {
                     minIndex = j;
                 } else if (albums[j].getGenre().equals(albums[minIndex].getGenre())) {
                     // If two albums have the same genre, sort by the artists.
-                    if (albums[j].getArtist().getName().compareTo(albums[minIndex].getArtist().getName()) < 0) {
+                    if (albums[j].getArtist().getName().compareToIgnoreCase(albums[minIndex].getArtist().getName()) < 0) {
                         minIndex = j;
                     } else if (albums[j].getArtist().getName().equals(albums[minIndex].getArtist().getName())) {
                         // If two artists have the same name, sort by their dates of birth.
                         if (albums[j].getArtist().getBorn().compareTo(albums[minIndex].getArtist().getBorn()) < 0) {
                             minIndex = j;
+                        } else if (albums[j].getArtist().getBorn().compareTo(albums[minIndex].getArtist().getBorn()) == 0) {
+                            if (albums[j].getReleased().compareTo(albums[minIndex].getReleased()) < 0) {
+                                minIndex = j;
+                            }
                         }
                     }
                 }

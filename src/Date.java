@@ -104,7 +104,7 @@ public class Date implements Comparable<Date> {
         Calendar today = Calendar.getInstance();
 
         Calendar input = Calendar.getInstance();
-        input.setLenient(false);
+        input.setLenient(false); // only valid calendar date
         input.set(year, month - 1, day);
 
         if (input.after(today)) {

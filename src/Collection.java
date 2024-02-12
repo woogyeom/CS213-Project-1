@@ -242,6 +242,7 @@ public class Collection {
                     minIndex = j;
                 } else if (albums[j].avgRatings() == albums[minIndex].avgRatings()) {
                     // If two albums have the same average rating, sort by the titles in lexicographical order.
+                    System.out.println(albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0);
                     if (albums[j].getTitle().compareTo(albums[minIndex].getTitle()) < 0) {
                         minIndex = j;
                     }

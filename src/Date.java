@@ -146,21 +146,21 @@ public class Date implements Comparable<Date> {
      * @param args Command line arguments (not used).
      */
     public static void main(String[] args){
-        Date dateTest1 = new Date(13, 15, 2024);
+        Date dateTest1 = new Date(13, 15, 2023);
         Date dateTest2 = new Date(2, 29, 2023);
-        Date dateTest3 = new Date(4, 31, 2024);
-        Date dateTest4 = new Date(2, 29, 1900);
+        Date dateTest3 = new Date(4, 31, 2023);
+        Date dateTest4 = new Date(4, 29, 2025);
         Date dateTest5 = new Date(12, 31, 1899);
         Date dateTest6 = new Date(2, 29, 2000);
-        Date dateTest7 = new Date(7, 15, 2023);
+        Date dateTest7 = new Date(12, 31, 2023);
 
         System.out.println(dateTest1.isValid()); //False - Invalid date - month out of range
         System.out.println(dateTest2.isValid()); //False - Invalid date - Day beyond range for Feb in non-leap year
         System.out.println(dateTest3.isValid()); //False - Invalid date - Day beyond range for a month
-        System.out.println(dateTest4.isValid()); //False - Invalid date - Day beyond range, as 1900 was not a leap year
+        System.out.println(dateTest4.isValid()); //False - Invalid date - Day is in the future
         System.out.println(dateTest5.isValid()); //False - Invalid date - Year is before 1900
         System.out.println(dateTest6.isValid()); //True - Valid Leap year date
-        System.out.println(dateTest7.isValid()); //True - Valid standard date
+        System.out.println(dateTest7.isValid()); //True - Valid day since it is in a 31-day month
 
 
     }
